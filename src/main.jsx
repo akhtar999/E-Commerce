@@ -8,15 +8,19 @@ import { BrowserRouter } from "react-router-dom";
 import ProductProvider from "./contexts/ProductContext.jsx";
 // sidebar provider
 import SidebarProvider from "./contexts/SideBarContext.jsx";
+//cart provider
+import CartProvider from "./contexts/CartContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <SidebarProvider>
-    <ProductProvider>
-      <React.StrictMode>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </React.StrictMode>
-    </ProductProvider>
+    <CartProvider>
+      <ProductProvider>
+        <React.StrictMode>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </React.StrictMode>
+      </ProductProvider>
+    </CartProvider>
   </SidebarProvider>
 );
