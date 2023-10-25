@@ -7,6 +7,7 @@ import { SidebarContext } from "../contexts/SideBarContext";
 //import cart context
 import { CartContext } from "../contexts/CartContext";
 import CartItem from "./CartItem";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
@@ -30,7 +31,7 @@ const SideBar = () => {
           <IoMdArrowForward className="text-2xl" />
         </div>
       </div>
-      <div className="flex flex-col gap-y-2 h-[520px] lg:h-[640px] overflow-y-auto overflow-x-hidden border-b">
+      <div className="flex flex-col gap-y-2 h-[350px] lg:h-[430px] overflow-y-auto overflow-x-hidden border-b">
         {cart.map((item) => {
           return <CartItem key={item.id} item={item} />;
         })}
@@ -49,6 +50,18 @@ const SideBar = () => {
             <FiTrash2 />
           </div>
         </div>
+        <Link
+          to="/"
+          className="bg-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium"
+        >
+          View Cart
+        </Link>
+        <Link
+          to="/"
+          className="bg-green-600 flex p-4 justify-center items-center text-white w-full font-medium"
+        >
+          Check Out
+        </Link>
       </div>
     </div>
   );
